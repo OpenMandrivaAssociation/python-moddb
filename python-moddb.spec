@@ -27,3 +27,5 @@ This library is a much more mature and professional attempt at the whole idea, a
 
 %files
 %doc README.md
+%{python_sitelib}/moddb-%{version}.dist-info
+%{python_sitelib}/moddb/ 

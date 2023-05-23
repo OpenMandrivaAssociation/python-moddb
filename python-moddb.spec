@@ -4,7 +4,7 @@ Release:        1
 Summary:        A Python scraper/parser for ModDB
 License:        MIT
 URL:            https://github.com/ClementJ18/moddb
-source0:        %{url}/archive/v%{version}/moddb-%{version}.tar.gz
+source0:        https://files.pythonhosted.org/packages/source/m/moddb/moddb-%{version}.tar.gz
 Patch:          nonstrict-versioning.patch
 
 BuildArch:      noarch

@@ -10,7 +10,9 @@ Patch:          nonstrict-versioning.patch
 BuildArch:      noarch
 BuildRequires:  pkgconfig(python)
 BuildRequires:  python3dist(pip)
-BuildRequires:  python3dist(wheel)  
+BuildRequires:  python3dist(wheel)
+
+Requires:       python3dist(pyrate-limiter)
 %description
 The goal of the library is to be able to navigate ModDB purely programmatically through scraping and parsing of the various models present on the website. 
 This is based off a command of my bot which can parse either a game or a mod, this command gave birth to the original library which was extremely limited in its abilities and only able to parse a few pages with inconsistencies. 

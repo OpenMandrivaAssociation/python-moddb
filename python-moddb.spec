@@ -1,6 +1,6 @@
 Name:           python-moddb
 Version:        0.8.1
-Release:        2
+Release:        3
 Summary:        A Python scraper/parser for ModDB
 License:        MIT
 URL:            https://github.com/ClementJ18/moddb

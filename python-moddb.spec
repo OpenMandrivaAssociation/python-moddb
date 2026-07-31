@@ -1,11 +1,11 @@
 Name:           python-moddb
-Version:        0.8.1
-Release:        3
+Version:        0.15.0
+Release:        1
 Summary:        A Python scraper/parser for ModDB
 License:        MIT
 URL:            https://github.com/ClementJ18/moddb
 Source0:        https://files.pythonhosted.org/packages/source/m/moddb/moddb-%{version}.tar.gz
-Patch:          nonstrict-versioning.patch
+# dropped (no longer applies): Patch:          nonstrict-versioning.patch
 
 BuildArch:      noarch
 BuildRequires:  pkgconfig(python)
@@ -22,7 +22,7 @@ This is based off a command of my bot which can parse either a game or a mod, th
 This library is a much more mature and professional attempt at the whole idea, adding on a much deeper understanding of OOP.
  
 %prep
-%autosetup -p1 -n moddb-%{version}
+%autosetup -p1 -n moddb-0.15.0
 
 %build
 %py_build

@@ -1,12 +1,12 @@
 Name:           python-moddb
-Version:        0.15.0
-Release:        1
+Version:        0.8.1
+Release:        4
 Summary:        A Python scraper/parser for ModDB
 License:        MIT
 Group:          Development/Python
 URL:            https://github.com/ClementJ18/moddb
 Source0:        https://files.pythonhosted.org/packages/source/m/moddb/moddb-%{version}.tar.gz
-# dropped (no longer applies): Patch:          nonstrict-versioning.patch
+Patch:          nonstrict-versioning.patch
 
 BuildArch:      noarch
 BuildRequires:  pkgconfig(python3)
@@ -18,19 +18,20 @@ Requires:       python%{pyver}dist(pyrate-limiter)
 Requires:       python%{pyver}dist(toolz)
 
 %description
-Scrape and parse ModDB pages so a client can navigate the site
-programmatically.
- 
+The goal of the library is to be able to navigate ModDB purely programmatically through scraping and parsing of the various models present on the website.
+This is based off a command of my bot which can parse either a game or a mod, this command gave birth to the original library which was extremely limited in its abilities and only able to parse a few pages with inconsistencies.
+This library is a much more mature and professional attempt at the whole idea, adding on a much deeper understanding of OOP.
+
 %prep
-%autosetup -p1 -n moddb-0.15.0
+%autosetup -p1 -n moddb-%{version}
 
 %build
 %py_build
- 
+
 %install
 %py_install
 
 %files
 %doc README.md
-%{python_sitelib}/moddb-*.egg-info
-%{python_sitelib}/moddb/ 
+%{python_sitelib}/moddb-%{version}.dist-info
+%{python_sitelib}/moddb/

@@ -1,26 +1,24 @@
 Name:           python-moddb
-Version:        0.8.1
-Release:        4
+Version:        0.15.0
+Release:        1
 Summary:        A Python scraper/parser for ModDB
 License:        MIT
 Group:          Development/Python
 URL:            https://github.com/ClementJ18/moddb
 Source0:        https://files.pythonhosted.org/packages/source/m/moddb/moddb-%{version}.tar.gz
-Patch:          nonstrict-versioning.patch
 
 BuildArch:      noarch
 BuildRequires:  pkgconfig(python3)
 BuildRequires:  python%{pyver}dist(pip)
 BuildRequires:  python%{pyver}dist(wheel)
 BuildRequires:  python%{pyver}dist(setuptools)
-
-Requires:       python%{pyver}dist(pyrate-limiter)
-Requires:       python%{pyver}dist(toolz)
+# setup.py imports packaging to parse requirements.txt
+BuildRequires:  python%{pyver}dist(packaging)
+# boxes.py imports typing_extensions. Upstream does not declare it.
+Requires:       python%{pyver}dist(typing-extensions)
 
 %description
-The goal of the library is to be able to navigate ModDB purely programmatically through scraping and parsing of the various models present on the website.
-This is based off a command of my bot which can parse either a game or a mod, this command gave birth to the original library which was extremely limited in its abilities and only able to parse a few pages with inconsistencies.
-This library is a much more mature and professional attempt at the whole idea, adding on a much deeper understanding of OOP.
+Scrape and parse ModDB pages.
 
 %prep
 %autosetup -p1 -n moddb-%{version}
@@ -33,5 +31,6 @@ This library is a much more mature and professional attempt at the whole idea, a
 
 %files
 %doc README.md
-%{python_sitelib}/moddb-%{version}.dist-info
+# setup.py install writes egg-info, not a wheel dist-info
+%{python_sitelib}/moddb-%{version}-py%{pyver}.egg-info
 %{python_sitelib}/moddb/
